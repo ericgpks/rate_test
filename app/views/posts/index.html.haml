@@ -2,3 +2,19 @@
   .p-post-index__new
     = link_to "新規登録", new_post_path, class: "p-post-index__new-btn"
   .p-post-index__table
+    %table
+      %tr
+        %th 登録日
+        %th タイトル
+        %th ジャンル
+        %th 編集
+      - @posts.each do |post|
+        %tr
+          %td
+            = post.created_at.strftime("%Y年%m月%d日")
+          %td
+            = post.title
+          %td
+            = post.m_category.name
+          %td
+            = link_to "編集", edit_post_path(post.id)
