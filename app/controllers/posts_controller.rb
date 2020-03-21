@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   
   def index
+    @posts = Post.includes(:m_category).order(created_at: :desc)
   end
 
   def new
