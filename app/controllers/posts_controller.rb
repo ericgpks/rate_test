@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+    @categories = MCategory.all.order(id: :asc)
   end
 
   def create
