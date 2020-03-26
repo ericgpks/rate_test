@@ -1,0 +1,17 @@
+.p-post-new__main
+  = form_with(model: @post, url: posts_path(@post), method: :post, local: true, class: "p-post-new__content") do |f|
+    .p-post-new__item
+      %label タイトル
+      = f.text_field :title
+    .p-post-new__item
+      %label カテゴリー
+      = f.select :m_category_id, @categories.map(&:name)
+    .p-post-new__item
+      %label 内容
+      = f.text_area :content
+    .p-post-new__item
+      %label 評価
+    
+    .p-post-new__submit
+      = f.button "登録"
+
